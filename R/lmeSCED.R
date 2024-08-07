@@ -61,6 +61,10 @@ fit_and_transform_model <- function(data, formula, random_formula, ar1_formula,
   a <- unname((1 - coef(model_fit$modelStruct$corStruct, unconstrained = "F")^2)^-1/2)
   b <- a * -coef(model_fit$modelStruct$corStruct, unconstrained = "F")
 
+  print("Coefficients for transformation:")
+  print(a)
+  print(b)
+
   matrix_block <- sparseMatrix(
     c(1:nmeasurement_list, 2:nmeasurement_list),
     c(1:nmeasurement_list, 1:(nmeasurement_list - 1)),
@@ -79,6 +83,9 @@ fit_and_transform_model <- function(data, formula, random_formula, ar1_formula,
   data$trans_phase <- as.vector(matrix_R %*% data[[phase_col]])
   data$trans_time <- as.vector(matrix_R %*% data[[time_col]])
   data$trans_interaction <- as.vector(matrix_R %*% data[[interaction_col]])
+
+  print("Transformed data:")
+  print(data)
 
   # Fit the second model
   model_fit1 <- try(
