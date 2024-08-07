@@ -1,6 +1,6 @@
 # lmeSCED
 
-`FitTransformModel` is an R package that fits an initial linear mixed-effects model using the `nlme` package, applies a transformation based on the fitted model, and then fits a transformed model using the `lmerTest` package.
+`lmeSCED` is an R package that fits an initial linear mixed-effects model using the `nlme` package, applies a transformation based on the fitted model, and then fits a transformed model using the `lmerTest` package.
 
 ## Installation
 
