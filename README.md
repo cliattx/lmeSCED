@@ -4,7 +4,7 @@
 
 ## Installation
 
-You can install the development version of `FitTransformModel` from GitHub with:
+You can install the development version of `lmeSCED` from GitHub with:
 
 ```R
 # Install devtools if you haven't already
