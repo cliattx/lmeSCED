@@ -51,7 +51,6 @@ fit_and_transform_model <- function(data, formula, random_formula, ar1_formula,
     ),
     silent = TRUE
   )
-  results_model$model_fit <- model_fit
 
   if (inherits(model_fit, "try-error")) {
     stop("Initial model fitting failed.")
@@ -60,10 +59,6 @@ fit_and_transform_model <- function(data, formula, random_formula, ar1_formula,
   # Transformation
   a <- unname((1 - coef(model_fit$modelStruct$corStruct, unconstrained = "F")^2)^-1/2)
   b <- a * -coef(model_fit$modelStruct$corStruct, unconstrained = "F")
-
-  print("Coefficients for transformation:")
-  print(a)
-  print(b)
 
   matrix_block <- sparseMatrix(
     c(1:nmeasurement_list, 2:nmeasurement_list),
@@ -84,9 +79,6 @@ fit_and_transform_model <- function(data, formula, random_formula, ar1_formula,
   data$trans_time <- as.vector(matrix_R %*% data[[time_col]])
   data$trans_interaction <- as.vector(matrix_R %*% data[[interaction_col]])
 
-  print("Transformed data:")
-  print(data)
-
   # Fit the second model
   model_fit1 <- try(
     lmerTest::lmer(
@@ -96,11 +88,10 @@ fit_and_transform_model <- function(data, formula, random_formula, ar1_formula,
     ),
     silent = TRUE
   )
-  results_model$model_fit1 <- model_fit1
 
-  if (inherits(model_fit1, "try-error")) {
-    stop("Transformed model fitting failed.")
-  }
+  # if (inherits(model_fit1, "try-error")) {
+  #   stop("Transformed model fitting failed.")
+  # }
 
-  return(results_model$model_fit1)
+  return(model_fit1)
 }
