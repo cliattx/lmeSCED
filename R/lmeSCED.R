@@ -1,4 +1,4 @@
-#' Fit and Transform Model
+#' lme_sced
 #'
 #' This function fits an initial linear mixed-effects model using the `nlme` package, applies a transformation based on the fitted model, and then fits a transformed model using the `lmerTest` package.
 #'
@@ -21,9 +21,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' fit_and_transform_model(data, y ~ time + phase + interaction, ~ 1 + time + phase + interaction | id, ~ time | id, "time", "phase", "interaction", "id")
+#' lme_sced(data, y ~ time + phase + interaction, ~ 1 + time + phase + interaction | id, ~ time | id, "time", "phase", "interaction", "id")
 #' }
-fit_and_transform_model <- function(data, formula, random_formula, ar1_formula,
+lme_sced <- function(data, formula, random_formula, ar1_formula,
                                     time_col, phase_col, interaction_col, id_col) {
 
   # Check and install packages if necessary
@@ -88,10 +88,6 @@ fit_and_transform_model <- function(data, formula, random_formula, ar1_formula,
     ),
     silent = TRUE
   )
-
-  # if (inherits(model_fit1, "try-error")) {
-  #   stop("Transformed model fitting failed.")
-  # }
 
   return(model_fit1)
 }
