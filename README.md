@@ -11,4 +11,4 @@ You can install the package from the source:
 install.packages("devtools")
 
 # Install lmeSCED package
-devtools::install("path/to/your/lmeSCED")
+devtools::install("cliattx/lmeSCED")
