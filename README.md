@@ -22,6 +22,10 @@ devtools::install_github("cliattx/lmeSCED")
 
 ```
 
+## Syntax
+
+This package is designed using the same syntax from the `nlme` package.
+
 ## Example
 
 ```r
@@ -35,3 +39,7 @@ lme_sced(data = data_1,
          id_col = "id")
 
 ```
+
+## Limitations 
+
+The package is limited to the balanced-design right now (i.e., same number of observations across individuals). 
