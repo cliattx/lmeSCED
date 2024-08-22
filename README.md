@@ -30,14 +30,9 @@ This package is designed using the same syntax from the `nlme` package.
 
 ```r
 lme_sced(data = data_1,
-         formula = y ~ time + phase + interaction,
-         random_formula = ~ 1 + time + phase + interaction|id,
-         ar1_formula = ~ time|id,
-         time_col = "time",
-         phase_col = "phase",
-         interaction_col = "interaction",
-         id_col = "id")
-
+         fixed = y ~ time + phase,
+         random = ~ time | id,
+         ar_1 = ~ time | id)
 ```
 
 ## Limitations 
