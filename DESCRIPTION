@@ -1,0 +1,14 @@
+Package: lmeSCED
+Type: Package
+Title: A Package for SCED Mixed-Effects Models
+Version: 0.1.0
+Author: Your Name
+Maintainer: Your Name <your.email@example.com>
+Description: This package fits mixed-effects models for single-case experimental design (SCED) data.
+License: GPL (>= 3)
+Imports: 
+    nlme,
+    Matrix,
+    lmerTest,
+    pbkrtest
+RoxygenNote: 7.3.2
