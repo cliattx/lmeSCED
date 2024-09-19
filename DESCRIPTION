@@ -2,8 +2,8 @@ Package: lmeSCED
 Type: Package
 Title: A Package for SCED Mixed-Effects Models
 Version: 0.1.0
-Author: Your Name
-Maintainer: Your Name <your.email@example.com>
+Author: CHENDONG LI, EUNKYENG BAEK, WEN LUO
+Maintainer: CHENDONG LI <cliattx@tamu.edu>
 Description: This package fits mixed-effects models for single-case experimental design (SCED) data.
 License: GPL (>= 3)
 Imports: 
