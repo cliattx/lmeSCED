@@ -1,0 +1,30 @@
+---
+title: "Using lmeSCED with SingleCaseES Datasets"
+author: "Chendong Li"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using lmeSCED with SingleCaseES Datasets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+
+The `lmeSCED` package provides tools to fit linear mixed effects models tailored for Single-Case Experimental Designs (SCED) data. This vignette demonstrates how to use `lmeSCED` with datasets from the `SingleCaseES` package.
+
+# Prerequisites
+
+Ensure that both `lmeSCED` and `SingleCaseES` packages are installed.
+
+```R
+# Install devtools if not already installed
+if (!requireNamespace("devtools", quietly = TRUE)) {
+  install.packages("devtools")
+}
+
+# Install lmeSCED from GitHub (replace with your repository)
+devtools::install_github("yourusername/lmeSCED")
+
+# Install SingleCaseES from CRAN
+install.packages("SingleCaseES")
