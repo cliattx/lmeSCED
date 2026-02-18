@@ -12,7 +12,10 @@ Imports:
     nlme,
     Matrix,
     lmerTest,
-    pbkrtest
+    pbkrtest,
+    lme4,
+    RLRsim,
+    stats
 Suggests:
     testthat,
     roxygen2,

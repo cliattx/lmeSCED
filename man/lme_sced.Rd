@@ -2,29 +2,29 @@
 % Please edit documentation in R/lme_sced.R
 \name{lme_sced}
 \alias{lme_sced}
-\title{Fit Linear Mixed Effects Models for SCED Data}
+\title{Apply GLS Transformation and Mixed Effects Modeling for SCED}
 \usage{
 lme_sced(data, fixed, random, control = NULL, ar_1 = NULL)
 }
 \arguments{
-\item{data}{A data frame containing the variables in the model.}
+\item{data}{A data frame containing the SCED data.}
 
-\item{fixed}{A formula specifying the fixed effects.}
+\item{fixed}{A formula specifying the fixed effects (e.g., \code{score ~ session + phase}).}
 
-\item{random}{A formula specifying the random effects.}
+\item{random}{A formula specifying the random effects (e.g., \code{~ phase | case}).}
 
-\item{control}{An optional list of control parameters. Defaults to \code{list(msMaxIter = 10000, opt = "optim")}.}
+\item{control}{A list of control values for the estimation algorithm. Defaults to \code{list(msMaxIter = 10000, opt = "optim")}.}
 
-\item{ar_1}{An optional formula specifying the AR(1) correlation structure.}
+\item{ar_1}{A formula specifying the AR(1) structure (e.g., \code{~ session | case}). If \code{NULL}, a standard LME is fitted.}
 }
 \value{
-A list containing the fitted model, AR(1) coefficient, and transformed data (if AR(1) is specified).
+A list containing:
+\item{model}{The fitted \code{lmer} model object (after GLS transformation).}
+\item{ar1}{The estimated AR(1) autocorrelation coefficient.}
+\item{data}{The transformed data frame used for the final model.}
 }
 \description{
-This function fits linear mixed effects models tailored for Single-Case Experimental Designs (SCED) data,
-with options to account for AR(1) correlation structures.
-}
-\examples{
-# Example usage of lme_sced()
-model <- lme_sced(data = my_data, fixed = Y ~ TIME + PHASE, random = ~ TIME | ID, ar_1 = ~ TIME | ID)
+Fits a linear mixed-effects model to Single-Case Experimental Design (SCED) data.
+It handles autocorrelation using a Generalized Least Squares (GLS) transformation
+and provides fixed effects inference using Satterthwaite's method.
 }

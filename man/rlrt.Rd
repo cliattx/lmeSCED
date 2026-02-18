@@ -4,27 +4,19 @@
 \alias{rlrt}
 \title{Restricted Likelihood Ratio Test for Variance Components}
 \usage{
-rlrt(data, id_var, fixed_vars, random_vars, control = NULL)
+rlrt(lme_sced_results)
 }
 \arguments{
-\item{data}{A data frame containing the variables in the model.}
-
-\item{id_var}{A string specifying the name of the grouping variable.}
-
-\item{fixed_vars}{A character vector of fixed effect variable names.}
-
-\item{random_vars}{A character vector of random effect variable names.}
-
-\item{control}{An optional list of control parameters for model fitting.}
+\item{lme_sced_results}{A list object returned by the \code{lme_sced} function.}
 }
 \value{
-A list containing the full model, diagonal covariance model, p-values for random effects, and p-value for covariance between random effects.
+A list containing:
+\item{full_model_nlme}{The full model fitted with nlme.}
+\item{diag_model_nlme}{The reduced model (diagonal covariance) fitted with nlme.}
+\item{p_values_random_effects}{P-values for the variance components (BC-RLRT).}
+\item{p_value_covariance}{P-value for the covariance components (Parametric Bootstrap).}
 }
 \description{
-Performs a restricted likelihood ratio test (RLRT) to test the significance of variance components
-in a linear mixed-effects model.
-}
-\examples{
-# Example usage of rlrt()
-results <- rlrt(data = my_data, id_var = "ID", fixed_vars = c("TIME", "PHASE"), random_vars = c("TIME"))
+Performs a boundary-corrected restricted likelihood ratio test (BC-RLRT) for variance components
+and a parametric bootstrap for covariance components in SCED models.
 }
