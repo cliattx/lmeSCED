@@ -92,7 +92,7 @@ This package implements the methods described in Li, Baek, & Luo (2025). The wor
 
 If you use this package in your research, please cite the following manuscript:
 
-> **Li, C., Baek, E., & Luo, W. (2025).** Generalized Least Squares Transformation for Single-case Experimental Design: Introducing the R Package lmeSCED. *Behavior Research Methods*. (Manuscript Submitted).
+> **Li, C., Baek, E., & Luo, W. (2026).** Generalized Least Squares Transformation for Single-case Experimental Design: Introducing the R Package lmeSCED. *Behavior Research Methods*. (Manuscript Accepted).
 
 ## Authors
 
